@@ -174,7 +174,9 @@
             border: 1px solid #6ee7b7;
         }
 
-        /* Verde claro */
+        [x-data="folderStructureComponent"] a {
+            text-decoration: underline;
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -268,7 +270,26 @@
                             },
                             'di': { type: 'folder', description: 'Inyección de dependencias' },
                             'error': { type: 'folder', description: 'Manejo de errores' },
-                            'network': { type: 'folder', description: 'Cliente HTTP base' },
+                            'network': {
+                                type: 'folder',
+                                description: 'Cliente HTTP base',
+                                items: {
+                                    'adapters': {
+                                        type: 'folder',
+                                        description: 'Manejo de errores',
+                                        items: {
+                                            'http_dio_client.dart': { type: 'file', description: 'Configuración base del cliente HTTP.' },
+                                            'http_dio_interceptor.dart': { type: 'file', description: 'Interceptores del cliente HTTP' },
+                                            'http_dio_cache.dart': { type: 'file', description: '(POSIBLE IMPLEMENTACIÓN)' },
+                                            'http_dio_impl.dart': { type: 'file', description: 'Ejecutor del cliente e interceptores, también lleva a cabo las llamadas http.' },
+                                        },
+                                    },
+                                    'interceptors': {
+                                        type: 'folder',
+                                        description: 'Interceptores agrupados por entidades y/o acciones',
+                                    },
+                                },
+                            },
                             'utils': { type: 'folder', description: 'Utilidades' },
                         }
                     },
@@ -278,9 +299,66 @@
                         title: 'Presentation Layer',
                         items: {
                             'manager': { type: 'folder', description: 'Gestión de estado (Bloc/Cubit/Provider)' },
-                            'pages': { type: 'folder', description: 'Pantallas completas' },
-                            'widgets': { type: 'folder', description: 'Widgets reutilizables' },
-                        }
+                            'layouts': {
+                                type: 'folder',
+                                description: 'Layouts de pantalla',
+                                items: {
+                                    'auth_layout.dart': { type: 'file', description: 'Layout usado en las pantalla de autenticación' },
+                                    'app_layout.dart': { type: 'file', description: 'Layout general usado en el 90% de la aplicación' },
+                                }
+                            },
+                            'pages': {
+                                type: 'folder',
+                                description: 'Pantallas completas (También podríamos denominaras "screen")',
+                                items: {
+                                    'auth': {
+                                        type: 'folder',
+                                        description: 'Todo el flujo relacionado a la autenticación de usuarios debe estar aquí',
+                                        items: {
+                                            'login_page.dart': { type: 'file', description: 'Página de inicio de sesión' },
+                                            'register_page.dart': { type: 'file', description: 'Página de registro' },
+                                            'forgot_password_page.dart': { type: 'file', description: 'Página de olvido de contraseña' },
+                                            'reset_password_page.dart': { type: 'file', description: 'Página de restablecimiento de contraseña' },
+                                        },
+                                    },
+                                    'profile': {
+                                        type: 'folder',
+                                        description: 'Todo el flujo relacionado a la autenticación de usuarios debe estar aquí',
+                                        items: {
+                                            'profile_page.dart': { type: 'file', description: 'Página del perfil' },
+                                            'profile_edit_page.dart': { type: 'file', description: 'Edición del perfil' },
+                                            'profile_orders_page.dart': { type: 'file', description: 'Listado de ordenes' },
+                                            'profile_address_page.dart': { type: 'file', description: 'Listado de direcciones' },
+                                            'profile_address_update_page.dart': { type: 'file', description: 'Edición de dirección, se usara también para nuevas direcciones.' },
+                                            'profile_wallet_page.dart': { type: 'file', description: 'Información de la Wallet.' },
+                                        },
+                                        'home': {
+                                            type: 'folder',
+                                            description: 'No solo el home se estará aquí, sino también el "contacto", "nosotros", "FAQ" y cualquier página no perteneciente a un <a href="#">flujo definido</a>.',
+                                            items: {
+                                                'home_page.dart': { type: 'file', description: 'Página del home' },
+                                            },
+                                        },
+                                        'shop': { type: 'folder', description: 'Vistas de la tienda como: Productos, Producto (individual), Búsqueda, etc...' },
+                                        'shipping': { type: 'folder', description: 'Flujo de compras.' },
+                                    }
+                                },
+                                'widgets': {
+                                    type: 'folder',
+                                    description: 'Widgets reutilizables, estos se agrupan por entidad o funcionalidad',
+                                    items: {
+                                        'navigation': {
+                                            type: 'folder',
+                                            description: 'Elementos de navegación como el menu, drawer de notificaciones, NavigationBar, etc...',
+                                        },
+                                        'product': {
+                                            type: 'folder',
+                                            description: 'Widgets relacionados a los productos. Como Card de producto, listas de productos. Ademas se usara el <a href="#">Atomic Design</a> para la estructura de Widgets.',
+                                        },
+                                    },
+                                },
+                            }
+                        },
                     },
                     'domain': {
                         type: 'folder',
@@ -302,8 +380,8 @@
                             'repositories': { type: 'folder', description: 'Implementaciones' },
                         }
                     },
-                }
-            }
+                },
+            },
         };
 
         document.addEventListener('alpine:init', () => {
