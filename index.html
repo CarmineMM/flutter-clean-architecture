@@ -249,7 +249,7 @@
                                         type: 'folder',
                                         description: 'Constantes',
                                         items: {
-                                            'environment.dart': { type: 'file', description: 'Variables de entornos cargadas' }
+                                            'environment.dart': { type: 'file', description: 'Variables de entornos del .env' }
                                         }
                                     },
                                     'router': {
@@ -372,7 +372,14 @@
                         layerClass: 'layer-domain',
                         title: 'Domain Layer',
                         items: {
-                            'entities': { type: 'folder', description: 'Modelos de negocio' },
+                            'entities': {
+                                type: 'folder',
+                                description: 'Modelos de negocio',
+                                items: {
+                                    'user.dart': { type: 'file', description: 'Entidad de usuario e independiente de la API.' },
+                                    'product.dart': { type: 'file', description: 'Entidad de producto, independiente de la API.' },
+                                },
+                            },
                             'repositories': { type: 'folder', description: 'Interfaces/Contratos' },
                             'usecases': { type: 'folder', description: 'Casos de uso' },
                         }
@@ -383,7 +390,15 @@
                         title: 'Infrastructure Layer',
                         items: {
                             'datasources': { type: 'folder', description: 'Fuentes (API, Local DB)' },
-                            'models': { type: 'folder', description: 'Modelos de datos (DTOs)' },
+                            'mappers': { type: 'folder', description: 'Mappers de los modelos a las entidades' },
+                            'models': {
+                                type: 'folder',
+                                description: 'Modelos de datos (DTOs)',
+                                items: {
+                                    'user_model.dart': { type: 'file', description: 'Modelo del usuario, este mapea a la entidad y se encarga de recibir y transformar del datasources' },
+                                    'product_model.dart': { type: 'file', description: 'Modelo del product, este mapea a la entidad y se encarga de recibir y transformar del datasources' },
+                                },
+                            },
                             'repositories': { type: 'folder', description: 'Implementaciones' },
                         }
                     },
