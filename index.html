@@ -226,9 +226,18 @@
         </div>
         <section class="flow-diagram">
             <h2 class="text-xl font-semibold mb-6 text-center text-gray-700">Reglas de juego</h2>
-            <ol class="my-4 text-xl list-decimal pl-6 leading-8 text-gray-800">
-                <li>DRY (Don't Repeat Yourself) (No te repitas a ti mismo).</li>
-                <li>Respetar la Arquitectura.</li>
+            <ol class="my-4 text-lg list-decimal pl-6 leading-8 text-gray-800">
+                <li class="font-semibold">DRY (Don't Repeat Yourself) (No te repitas a ti mismo).</li>
+                <li>
+                    <p>Respetar la Arquitectura.</p>
+                    <ul class="list-disc pl-8">
+                        <li>Variables de entornos centralizadas</li>
+                        <li>1 Archivo por Widget (Sin Excepciones)</li>
+                        <li>
+                            <p class="bg-green-200 w-fit px-3">Usar o no usar los <b>Barrel import</b></p>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <p>SOLID (Principios de diseño de software)</p>
                     <ul class="list-disc pl-8">
@@ -239,7 +248,14 @@
                         <li>D - Dependency Inversion (Inversión de dependencias)</li>
                     </ul>
                 </li>
-                <li>GitFlow</li>
+                <li>
+                    <p>GitFlow</p>
+                    <ul class="list-disc pl-8">
+                        <li>Conventional Commits</li>
+                        <li>Estándar en inglés</li>
+                        <li>Hacer uso de los release (1.0.0)</li>
+                    </ul>
+                </li>
             </ol>
         </section>
     </div>
