@@ -325,6 +325,7 @@
                                 },
                             },
                             'utils': { type: 'folder', description: 'Utilidades' },
+                            'contracts': { type: 'folder', description: 'Contratos para la dominio e infraestructura' },
                         }
                     },
                     'presentation': {
@@ -341,7 +342,7 @@
                                     'app_layout.dart': { type: 'file', description: 'Layout general usado en el 90% de la aplicación' },
                                 }
                             },
-                            'pages': {
+                            'screens': {
                                 type: 'folder',
                                 description: 'Pantallas completas (También podríamos denominaras "screen")',
                                 items: {
@@ -349,28 +350,28 @@
                                         type: 'folder',
                                         description: 'Todo el flujo relacionado a la autenticación de usuarios debe estar aquí',
                                         items: {
-                                            'login_page.dart': { type: 'file', description: 'Página de inicio de sesión' },
-                                            'register_page.dart': { type: 'file', description: 'Página de registro' },
-                                            'forgot_password_page.dart': { type: 'file', description: 'Página de olvido de contraseña' },
-                                            'reset_password_page.dart': { type: 'file', description: 'Página de restablecimiento de contraseña' },
+                                            'login_screen.dart': { type: 'file', description: 'Página de inicio de sesión' },
+                                            'register_screen.dart': { type: 'file', description: 'Página de registro' },
+                                            'forgot_password_screen.dart': { type: 'file', description: 'Página de olvido de contraseña' },
+                                            'reset_password_screen.dart': { type: 'file', description: 'Página de restablecimiento de contraseña' },
                                         },
                                     },
                                     'profile': {
                                         type: 'folder',
                                         description: 'Todo el flujo relacionado a la autenticación de usuarios debe estar aquí',
                                         items: {
-                                            'profile_page.dart': { type: 'file', description: 'Página del perfil' },
-                                            'profile_edit_page.dart': { type: 'file', description: 'Edición del perfil' },
-                                            'profile_orders_page.dart': { type: 'file', description: 'Listado de ordenes' },
-                                            'profile_address_page.dart': { type: 'file', description: 'Listado de direcciones' },
-                                            'profile_address_update_page.dart': { type: 'file', description: 'Edición de dirección, se usara también para nuevas direcciones.' },
-                                            'profile_wallet_page.dart': { type: 'file', description: 'Información de la Wallet.' },
+                                            'profile_screen.dart': { type: 'file', description: 'Página del perfil' },
+                                            'profile_edit_screen.dart': { type: 'file', description: 'Edición del perfil' },
+                                            'profile_orders_screen.dart': { type: 'file', description: 'Listado de ordenes' },
+                                            'profile_address_screen.dart': { type: 'file', description: 'Listado de direcciones' },
+                                            'profile_address_update_screen.dart': { type: 'file', description: 'Edición de dirección, se usara también para nuevas direcciones.' },
+                                            'profile_wallet_screen.dart': { type: 'file', description: 'Información de la Wallet.' },
                                         },
                                         'home': {
                                             type: 'folder',
                                             description: 'No solo el home se estará aquí, sino también el "contacto", "nosotros", "FAQ" y cualquier página no perteneciente a un <a href="#">flujo definido</a>.',
                                             items: {
-                                                'home_page.dart': { type: 'file', description: 'Página del home' },
+                                                'home_screen.dart': { type: 'file', description: 'Página del home' },
                                             },
                                         },
                                         'shop': { type: 'folder', description: 'Vistas de la tienda como: Productos, Producto (individual), Búsqueda, etc...' },
